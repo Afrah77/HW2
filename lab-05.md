@@ -1,21 +1,14 @@
 Lab 05 - Nobel laureates
 ================
 
-Team Name:
+Name : afrah jaber ID: 2201002977
 
-Team Members - Name and Student ID
-
-1.  
-2.  
-3.  
-4.  
-
-## Packages
+## Packages 
 
 Load tidyverse below
 
 ``` r
-library(tidyverse)
+nobel <- read_csv("data/nobel.csv")
 ```
 
 ## Data
@@ -33,6 +26,8 @@ nobel <- read_csv("data/nobel.csv")
 
 1.  How many observations and how many variables are in the dataset? Use
     inline code to answer this question. What does each row represent?
+    935 obs 26 variables each row reprenst information about a noble
+    prize winner.
 
 ``` r
 dim(nobel)

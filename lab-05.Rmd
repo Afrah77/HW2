@@ -3,29 +3,21 @@ title: "Lab 05 - Nobel laureates"
 output: github_document
   
 ---
-Team Name:
-
-Team Members - Name and Student ID
-
-1.
-
-2.
-
-3.
-
-4.
-
+Name : afrah jaber 
+ID: 2201002977
 
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(eval = TRUE)
+library(tidyverse) 
+
 ```
 
 ## Packages
 Load tidyverse below
 
 ```{r load-packages, message = FALSE}
-library(tidyverse)
+nobel <- read_csv("data/nobel.csv")
 ```
 
 ## Data
@@ -41,6 +33,9 @@ nobel <- read_csv("data/nobel.csv")
 ## Get to know your data
 
 1.  How many observations and how many variables are in the dataset? Use inline code to answer this question. What does each row represent?
+935 obs 
+26 variables
+each row reprenst information about a noble prize winner.
 
 
 ```{r}
