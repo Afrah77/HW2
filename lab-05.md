@@ -1,9 +1,10 @@
 Lab 05 - Nobel laureates
 ================
 
-Name : afrah jaber ID: 2201002977
+Name : afrah jaber  
+ID: 2201002977
 
-## Packages 
+## Packages
 
 Load tidyverse below
 
@@ -67,8 +68,20 @@ nrow(nobel_living)
 
 Get the code from the Lab document
 
+``` r
+nobel_living <- nobel_living %>%
+  mutate( 
+    conntry_us = if_else(country =="USA", "USA", "Oter")
+  )
+```
+
 Next, we will limit our analysis to only the following categories:
 Physics, Medicine, Chemistry, and Economics.
+
+``` r
+nobel_living_science <- nobel_living %>%
+  filter(category %in% c("Medicine", "Chemistry", "Economics"))
+```
 
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
