@@ -64,6 +64,7 @@ Confirm that once you have filtered for these characteristics you are left with 
 
 ```{r}
 nrow(nobel_living)
+
 ```
 
 
@@ -71,28 +72,17 @@ nrow(nobel_living)
 
 Get the code from the Lab document
 
-```{r}
-nobel_living <- nobel_living %>%
-  mutate( 
-    conntry_us = if_else(country =="USA", "USA", "Oter")
-  )
-```
 
 Next, we will limit our analysis to only the following categories: Physics, Medicine, Chemistry, and Economics.
 
-```{r}
-nobel_living_science <- nobel_living %>%
-  filter(category %in% c("Physics","Medicine", "Chemistry", "Economics"))
-```
  
 Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.d*
 
 3.  Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize.
     Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
 ```{r}
-nobel_living_science <- nobel_living %>%
-  filter(category %in% c("Physics","Medicine", "Chemistry", "Economics", "USA","USA","Other"))
-
+nobel_living_science %>% ggplot(aes(x  =  country_us, y=category, fill =category)) +
+geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal" )
 ```
 
     -   Your visualization should be faceted by category.
@@ -104,6 +94,7 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 ## But of those US-based Nobel laureates, many were born in other countries
 
 ```{r}
+
 ```
 
 
@@ -112,6 +103,7 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 
 ```{r}
+
 ```
 
 Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.d*
@@ -137,6 +129,7 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 
 ```{r}
+
 
 ```
 
