@@ -123,7 +123,8 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
     
 
 ```{r}
-
+nobel_living_science <- nobel_living %>%
+     filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
 ```
 
 Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
