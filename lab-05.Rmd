@@ -94,11 +94,13 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 ## But of those US-based Nobel laureates, many were born in other countries
 
+
+
 ```{r}
-nobel_living_science <-nobel_living_science %>%
-  mutate(
-    born_country_us = if_else(born_country == "USA", "USA", "Other")
-     )
+nobel_living_science %>% 
+  ggplot(aes(x  =  country_us, y=category, fill =category)) +
+ geom_bar(stat = "identity" , position = "dodge" +
+ coord_flip()
 ```
 
 
@@ -109,14 +111,15 @@ nobel_living_science <-nobel_living_science %>%
 ```{r}
 nobel_living_science <-nobel_living_science %>%
   mutate(
-    born_country_us = if_else(born_country == "USA", "USA", "Other")
-     )
+    born_country_us = if_else(born_country == "USA", "USA", "Other"))
 ```
 
 Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.d*
 
 5.  Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not.
-    Based on your visualization, do the data appear to support Buzzfeed's claim?
+    Based on your visualization, do the data appear to support Buzzfeed's claim? 
+
+- yes, because at buzzfeed we analyze the data to find more understanding of the data and obtain information. We go in depth and make a lot of filtering to understand the data
     Explain your reasoning in 1-2 sentences.
 
     -   Your final visualization should contain a facet for each category.
@@ -125,8 +128,11 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
     
 
 ```{r}
+nobel_living_science <-nobel_living_science %>%
+  mutate(
+    born_country_us = if_else(born_country == "USA", "USA", "Other"))
 nobel_living_science %>% 
-  ggplot(aes(x  =  country_us, y=category, fill =category)) +
+  ggplot(aes(x  =  country_us, y=born_contry_us, fill =category)) +
 geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal" )
 ```
 Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
@@ -137,9 +143,9 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 
 ```{r}
-nobel_living <-nobel %>%
-     filter(is.na(died_date) ,country!="NA" , gender!="org")
-
+nobel_living_science %>%
+filter(born_country_us=="Other",country_us=="USA") %>%count("born_country") %>% 
+arrange(desc(n))
 ```
 
 Germany and United kingdom
